@@ -29,6 +29,50 @@ namespace Stack
             Console.WriteLine("new node{0} is added", newNode.data);
         }
 
+
+        /// <summary>
+        /// UC2 Peek & Pop
+        /// </summary>
+        //The Peek() method returns the lastly added value from the stack but does not remove it.
+        public void peek() 
+        {
+            ///Checking if top element is null
+            ///otherwise printing the top element
+            if (this.top !=null)
+            {
+                Console.WriteLine("NO elemets present to peek");
+                return;
+            }
+            Console.WriteLine("Top Elements" + this.top.data);
+        }
+
+        //The Pop() method returns the last element and removes it from a stack.
+        public void pop()
+        {
+            ///Checking if top element is null
+            ///otherwise printing the top element and deleting it also
+            if(this.top == null)
+            {
+                Console.WriteLine("No elemets present for pop");
+                return;
+            }
+            else
+            {
+                Console.WriteLine("Top elements" + this.top.data);
+                int deletenode = this.top.data;
+                peek();
+                this.top = this.top.next;
+                Console.WriteLine("Deleted elements" + deletenode);
+            }   
+        }
+        public void ISEmpty()
+        {
+            while(this.top !=null)
+            {
+                pop();
+            }
+        }
+
         public void Display()
         {
             Console.WriteLine("Displaying Node");
